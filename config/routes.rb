@@ -5,7 +5,7 @@ Giffer::Application.routes.draw do
   resources :posts
 
   devise_for :users
-  root "pages#home"
+  root "posts#index"
   get "about" => "pages#about"
   get "posts" => "posts#index"
   # get "users/search"
