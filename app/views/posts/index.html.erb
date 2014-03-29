@@ -1,6 +1,19 @@
 <!-- <h1 class="profile-username"><#%= current_user.username if current_user %></h1> -->
-<!-- <#%= render "pages/home" %> -->
-<%= link_to 'Create New Post +', "/posts/new", class: "btn btn-full btn-primary" %>
+
+<% if !user_signed_in? %>
+  <div class="center">
+    <br>
+    <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to 'Login', new_user_session_path, class: "btn btn-lg btn-default" %>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <%= link_to "/posts/new", class: "btn btn-full btn-default" do %>
+    <span class="inline-reg">New Post</span>
+    <span class="inline-big">+</span>
+  <% end %>
+<% end %>
+
 <table>
   <div>
     <% @posts.each do |post| %>

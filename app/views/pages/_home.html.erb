@@ -1,12 +1,13 @@
-<div class="center">
-	<h1>Welcome to Giffy.</h1>
-	<p class="caption"> A beautiful blog in a giffy!</p>
+
+<!-- 	<h1>Welcome to Giffy.</h1>
+	<p class="caption"> A beautiful blog in a giffy!</p> -->
 	<% if !user_signed_in? %>
+	<div class="center">
 		<%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-primary" %>
 		<%= link_to 'Login', new_user_session_path, class: "btn btn-lg btn-default" %>
+	</div>
 	<% end %>
-	<% if user_signed_in? %>
+<!-- 	<% if user_signed_in? %>
 		<p class="lead">You're signed in and ready giff in a giffy!</p>
-		<!-- <#%= link_to 'View Profile', "users/#{current_user.username}", class: "btn btn-lg btn-primary" %> -->
-	<% end %>
-</div>
+		<#%= link_to 'View Profile', "users/#{current_user.username}", class: "btn btn-lg btn-primary" %>
+	<% end %> -->
