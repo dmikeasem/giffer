@@ -11,6 +11,7 @@
 </p>
 
 <%= social_share_button_tag(@post.title) %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if @post.user == current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
