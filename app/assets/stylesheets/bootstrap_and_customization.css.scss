@@ -1,3 +1,7 @@
+/*import font*/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,900);
+
+
 /*css reset*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -46,9 +51,14 @@ table {
 $navbar-inverse-bg: #10112F;
 /*bootstrap*/
 @import 'bootstrap';
-
+/*default font*/
+body{
+	font-family: "Source Sans Pro";
+	font-weight: 400;
+}
 .center {
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .mediumIMG {
@@ -667,10 +677,29 @@ $navbar-inverse-bg: #10112F;
 
 }
 .btn-default {
+	background: none;
+	color: #f26621;
+	border-style: 2px;
+	border-radius: 1px;
+	border-color: #f26621;
+	&:hover{
+		border-color: darken(#F26621, 10);
+		background: none;
+		color: darken(#F26621, 10);
+	}
+
 
 }
 .btn-primary {
-
+	background-color: #F26621;
+	color: #333333;
+	border-style: 2px;
+	border-radius: 1px;
+	border-color: #f26621;
+	&:hover{
+		border-color: darken(#F26621, 10);
+		background: darken(#F26621, 10);
+	}
 }
 .btn-warning {
 
@@ -875,6 +904,8 @@ $navbar-inverse-bg: #10112F;
 
 }
 .caption {
+	font-size: 14pt;
+	color: #999999;
 
 }
 .alert {
@@ -1142,10 +1173,11 @@ $navbar-inverse-bg: #10112F;
 
  .post-title > h2{
 	margin-top: -53px;
-	margin-bottom: 0px;
+	margin-bottom: -5px;
 	margin-left: 5px;
 	z-index: 30;
 	position: relative;
+	line-height: 1;
 }
 .username {
 	margin-left: 5px;
@@ -1157,4 +1189,7 @@ $navbar-inverse-bg: #10112F;
 	color: #999999;
 	margin-bottom: 0px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> homepagepretty
