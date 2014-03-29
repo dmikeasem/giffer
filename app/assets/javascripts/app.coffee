@@ -76,15 +76,38 @@ document.addEventListener 'DOMContentLoaded', ->
   giffy.image = document.querySelector '.gif'
   giffy.image.addEventListener 'click', changeFilter, false
   giffy.upload = document.getElementById 'upload'
+  giffy.camera_select = document.querySelector "select.videoSource"
+
+  MediaStreamTrack.getSources (sourceInfos) ->
+    for sourceInfo in sourceInfos by 1
+      option = document.createElement "option"
+      option.value = sourceInfo.id;
+      if sourceInfo.kind == 'video'
+        option.text = sourceInfo.label || 'camera ' + (giffy.camera_select.length + 1);
+        giffy.camera_select.appendChild(option);
+      else
+        console.log('Some other kind of source: ', sourceInfo);
+
+
+
   giffy.upload.addEventListener 'click', ->
     giffy.do_up master_blob
-  navigator.webkitGetUserMedia {audio: false, video: true}, (stream) ->
-      source = window.webkitURL.createObjectURL stream
-      giffy.video.autoplay = true
-      giffy.video.src = source
-  , (err) ->
-    giffy.errorCallback(err)
-
+  start_cam = ->
+    if !!window.stream
+      giffy.video.src = null;
+      window.stream.stop();
+    videoSource = giffy.camera_select.value;
+    navigator.webkitGetUserMedia {audio: false, video: {
+        optional: [{sourceId: videoSource}]
+      }}, (stream) ->
+        window.stream = stream
+        source = window.webkitURL.createObjectURL stream
+        giffy.video.autoplay = true
+        giffy.video.src = source
+    , (err) ->
+      giffy.errorCallback(err)
+  giffy.camera_select.onchange = start_cam;
+  start_cam()
   giffy.video_container.addEventListener 'click', ->
     giffy.start_rec 3
     giffy.controls.style.display = 'none'
