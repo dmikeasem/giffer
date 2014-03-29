@@ -54,6 +54,9 @@ giffy =
       return 0
   errorCallback: (e) ->
     console.log "Houston, we have a problem\n\t", e
+    r = confirm "Something went wrong! We suggest you reload the page."
+    if r
+      location.href = location.href
 
 document.addEventListener 'DOMContentLoaded', ->
   gif = new GIF
