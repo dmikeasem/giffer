@@ -8,8 +8,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -20,7 +20,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -769,7 +769,7 @@ $navbar-inverse-bg: #10112F;
 
 }
 .navbar-collapse {
-
+    border-color: darken(#F26621, 10);
 }
 .navbar-static-top {
 
@@ -781,10 +781,10 @@ $navbar-inverse-bg: #10112F;
 
 }
 .navbar-brand {
-
+    color:#fff;
 }
 .navbar-toggle {
-
+    border-color: darken(#F26621, 10);
 }
 .icon-bar {
 
@@ -814,7 +814,29 @@ $navbar-inverse-bg: #10112F;
 
 }
 .navbar-inverse {
-
+    background-color: #F26621;
+    border-color: darken(#F26621, 10);
+    color:#fff;
+    .navbar-brand {
+        color:#fff;
+    }
+    .navbar-toggle {
+        background: #F26621;
+        border-color: darken(#F26621, 10);
+        &:hover {
+            background: darken(#F26621, 10);
+        }
+    }
+    .navbar-collapse {
+        border-color: darken(#F26621, 10);
+    }
+    .navbar-nav {
+        li {
+            a {
+                color:#fff;
+            }
+        }
+    }
 }
 .breadcrumb {
 
@@ -1114,5 +1136,5 @@ $navbar-inverse-bg: #10112F;
 }
 .post-img{
 	width: 100%;
-	
+
 }

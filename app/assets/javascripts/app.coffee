@@ -23,6 +23,7 @@ giffy =
   appStrings:
     nope: "That's a no go..."
   do_up: (blob) ->
+    giffy.output.innerHTML = "Uploading...";
     form = new FormData()
     request = new XMLHttpRequest()
     form.append "post[title]", $(".title").val()
@@ -135,6 +136,7 @@ document.addEventListener 'DOMContentLoaded', ->
     $(".done_editing").show()
     giffy.progress.style.display = 'none'
     $(giffy.video.parentNode).slideUp()
+    $(".videoSource").hide()
 
   $(".title").hide()
   $(".body").hide()
