@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
 	
 	validates :image, presence: true
 	validates :body, presence: true
+	validates :title, presence: true
 end
