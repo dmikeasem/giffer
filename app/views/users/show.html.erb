@@ -5,14 +5,17 @@
   <div>
     <% @user.posts.each do |post| %>
       <div class="post-wrapper">
-        <div ><%= link_to image_tag(post.image.url, class: 'mediumIMG post-img'), post %></div>
-        <div class="gradient"></div>
-        <div class="post-title">
-          <h2> <%= post.title %></h2>
-        </div>
-  <!--         <div><%= post.body %></div> -->
-        <div class="username caption">
-          <%= post.user.username %>
+        <%= link_to post do %>
+          <div ><%= image_tag post.image.url, class: 'mediumIMG post-img' %></div>
+          <div class="gradient"></div>
+          <div class="post-title">
+            <h2> <%= post.title %></h2>
+          </div>
+    <!--         <div><%= post.body %></div> -->
+          <div class="username caption">
+            <%= post.user.username %>
+          </div>
+        <% end %>
         </div>
 
 
