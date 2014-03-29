@@ -7,6 +7,7 @@
       <th>Title</th>
       <th>Body</th>
       <th>User ID </th>
+      <th>Username</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,6 +21,7 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.user_id %></td>
+        <td><%= post.user.username if post.user %></td>
         <td><%= link_to 'Show', post %></td>
         <% if post.user == current_user %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
