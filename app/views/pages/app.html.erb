@@ -1,0 +1,14 @@
+<%= csrf_meta_tag %>
+<%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
+<script src='/gif/dist/gif.js'></script>
+<div class='recorder window'>
+  <p class='btn instructions control'>Click to record</p>
+  <p class='counter'>3</p>
+  <video autoplay></video>
+</div>
+<div class='window'>
+  <img class='gif' src='' />
+</div>
+<div class='result'></div>
+<button class='btn upload' id='upload'>Upload!</button>
+<progress value="0" max="100" class='render'></progress>
