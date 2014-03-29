@@ -1133,8 +1133,20 @@ $navbar-inverse-bg: #10112F;
 .post-wrapper{
 	width:50%;
 	float: left;
+	color: white;
+
 }
 .post-img{
 	width: 100%;
+}
 
+}
+ .post-title > h2{
+	margin-top: -53px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+.username{
+	margin-left: 5px;
+	color: #999999;
 }
