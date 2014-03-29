@@ -1,0 +1,40 @@
+<h1><%= current_user.email if current_user %></h1>
+
+<table>
+<!--   <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User ID </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead> -->
+
+  <div>
+    <% @posts.each do |post| %>
+      <div class="post-wrapper">
+        <div><%= link_to image_tag(post.image.url, class: 'mediumIMG post-img'), post %></div>
+        <div class="post-title"> 
+          <h2> <%= post.title %></h2>
+        </div>
+<!--         <div><%= post.body %></div> -->
+         <div class="username caption">
+          <%= post.user_id %>
+        </div>
+      <!--   <div><%= link_to 'Show', post %></div> --><!-- 
+        <% if post.user == current_user %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %> -->
+      </div>
+    <% end %>
+  </div>
+</table>
+
+<br>
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
