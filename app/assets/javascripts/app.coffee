@@ -36,7 +36,7 @@ giffy =
       if request.status == 200
         giffy.output.innerHTML = "Uploaded!";
       else
-        giffy.output.innerHTML = "Error " + oReq.status + " occurred uploading your file.<br \/>";
+        giffy.output.innerHTML = "Error " + request.status + " occurred uploading your file.<br \/>";
   start_rec: (time)->
       ctx = giffy.canvas.getContext '2d'
       count = 0
