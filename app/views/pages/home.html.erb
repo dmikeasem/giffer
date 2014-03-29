@@ -1,2 +1,10 @@
-<h1>Welcome to Giffy!</h1>
-<p>Some day, you'll be able to sign up here.</p>
+<div class="jumbotron center">
+	<h1>Welcome to Giffy!</h1><br><br>
+	<% if !user_signed_in? %>
+		<%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-primary" %>
+		<%= link_to 'Login', new_user_session_path, class: "btn btn-lg btn-default" %>
+	<% end %>
+	<% if user_signed_in? %>
+		<p class="lead">You're signed in and ready giff in a giffy!</p>
+	<% end %>
+</div>
