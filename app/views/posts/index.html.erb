@@ -1,7 +1,7 @@
-<h1>Listing posts</h1>
+<h1><%= current_user.email if current_user %></h1>
 
 <table>
-  <thead>
+<!--   <thead>
     <tr>
       <th>Image</th>
       <th>Title</th>
@@ -11,23 +11,23 @@
       <th></th>
       <th></th>
     </tr>
-  </thead>
+  </thead> -->
 
-  <tbody>
+  <div>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to image_tag(post.image.url, class: 'mediumIMG'), post %></td>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
+      <div class="post-wrapper">
+        <div><%= link_to image_tag(post.image.url, class: 'mediumIMG post-img'), post %></div>
+        <div><%= post.title %></div>
+<!--         <div><%= post.body %></div> -->
+        <div><%= post.user_id %></div>
+      <!--   <div><%= link_to 'Show', post %></div> --><!-- 
         <% if post.user == current_user %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+        <% end %> -->
+      </div>
     <% end %>
-  </tbody>
+  </div>
 </table>
 
 <br>
