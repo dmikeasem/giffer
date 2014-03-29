@@ -1134,13 +1134,13 @@ $navbar-inverse-bg: #10112F;
 	width:50%;
 	float: left;
 	color: white;
+	position: relative;
 
 }
 .post-img{
 	width: 100%;
 }
 
-}
  .post-title > h2{
 	margin-top: -53px;
 	margin-bottom: 0px;
@@ -1154,4 +1154,7 @@ $navbar-inverse-bg: #10112F;
 	color: #fff;
 	margin-left: 5px;
 	margin-top: 0px;
+}
+.zindex{
+	z-index: 500;
 }
