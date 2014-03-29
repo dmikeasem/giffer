@@ -1,4 +1,4 @@
-<h1><%= current_user.email if current_user %></h1>
+<h1 class="profile-username"><%= current_user.username if current_user %></h1>
 
 <table>
 <!--   <thead>
@@ -22,7 +22,7 @@
         </div>
 <!--         <div><%= post.body %></div> -->
          <div class="username caption">
-          <%= post.user_id %>
+          <%= post.user.username %>
         </div>
       <!--   <div><%= link_to 'Show', post %></div> --><!-- 
         <% if post.user == current_user %>
