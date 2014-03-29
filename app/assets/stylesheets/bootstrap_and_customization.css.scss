@@ -1145,16 +1145,13 @@ $navbar-inverse-bg: #10112F;
 	margin-top: -53px;
 	margin-bottom: 0px;
 	margin-left: 5px;
+	z-index: 30;
+	position: relative;
 }
 .username {
 	margin-left: 5px;
 	color: #999999;
+	z-index: 30;
+	position: relative;
 }
-.profile-username{
-	color: #fff;
-	margin-left: 5px;
-	margin-top: 0px;
-}
-.zindex{
-	z-index: 500;
-}
+
