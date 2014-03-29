@@ -54,6 +54,9 @@ giffy =
       return 0
   errorCallback: (e) ->
     console.log "Houston, we have a problem\n\t", e
+    r = confirm "Something went wrong! We suggest you reload the page."
+    if r
+      location.href = location.href
 
 document.addEventListener 'DOMContentLoaded', ->
   gif = new GIF
@@ -87,8 +90,6 @@ document.addEventListener 'DOMContentLoaded', ->
       if sourceInfo.kind == 'video'
         option.text = sourceInfo.label || 'camera ' + (giffy.camera_select.length + 1);
         giffy.camera_select.appendChild(option);
-      else
-        console.log('Some other kind of source: ', sourceInfo);
 
 
 

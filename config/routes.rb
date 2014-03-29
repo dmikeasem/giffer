@@ -7,9 +7,9 @@ Giffer::Application.routes.draw do
   devise_for :users
 
   get "posts" => "posts#index"
+
   get "app" => "pages#app"
   get "apost" => "posts#show"
-
   get "users/:username" => "users#show"
   # get "users/search"
 
