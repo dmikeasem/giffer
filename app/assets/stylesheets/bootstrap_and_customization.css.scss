@@ -58,6 +58,7 @@ body{
 }
 .center {
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .mediumIMG {
@@ -676,10 +677,29 @@ body{
 
 }
 .btn-default {
+	background: none;
+	color: #f26621;
+	border-style: 2px;
+	border-radius: 1px;
+	border-color: #f26621;
+	&:hover{
+		border-color: darken(#F26621, 10);
+		background: none;
+		color: darken(#F26621, 10);
+	}
+
 
 }
 .btn-primary {
-
+	background-color: #F26621;
+	color: #333333;
+	border-style: 2px;
+	border-radius: 1px;
+	border-color: #f26621;
+	&:hover{
+		border-color: darken(#F26621, 10);
+		background: darken(#F26621, 10);
+	}
 }
 .btn-warning {
 
