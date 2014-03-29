@@ -716,6 +716,9 @@ body{
 .btn-link {
 
 }
+.btn-full {
+	width: 100%;
+}
 .btn-lg {
 
 }
@@ -1166,6 +1169,9 @@ body{
 	float: left;
 	color: white;
 	position: relative;
+}
+.post-wrapper a {
+	text-decoration: none;
 }
 .post-img{
 	width: 100%;
