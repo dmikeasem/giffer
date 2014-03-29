@@ -8,7 +8,6 @@ Giffer::Application.routes.draw do
   root "pages#home"
   get "about" => "pages#about"
   get "posts" => "posts#index"
-  get "app" => "pages#app"
   # get "users/search"
   get "users/:username" => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.

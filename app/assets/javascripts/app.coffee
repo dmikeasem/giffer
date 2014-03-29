@@ -87,8 +87,6 @@ document.addEventListener 'DOMContentLoaded', ->
       if sourceInfo.kind == 'video'
         option.text = sourceInfo.label || 'camera ' + (giffy.camera_select.length + 1);
         giffy.camera_select.appendChild(option);
-      else
-        console.log('Some other kind of source: ', sourceInfo);
 
 
 
