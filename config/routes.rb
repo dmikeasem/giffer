@@ -1,11 +1,15 @@
 Giffer::Application.routes.draw do
+  get "pages/home"
+  get "pages/about"
+  get "pages/signup"
   resources :posts
 
   devise_for :users
-  root "posts#index"
+  root "pages#home"
   get "about" => "pages#about"
-  get "app" => "pages#app"
   get "posts" => "posts#index"
+  # get "users/search"
+  get "users/:username" => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
