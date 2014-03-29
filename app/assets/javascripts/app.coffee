@@ -25,10 +25,10 @@ giffy =
   do_up: (blob) ->
     form = new FormData()
     request = new XMLHttpRequest()
-    form.append "post[title]", "test"
-    form.append "post[body]", "another"
+    form.append "post[title]", $(".title").val()
+    form.append "post[body]", $(".body").val()
     form.append "authenticity_token", AUTH_TOKEN
-    form.append "post[image]", blob, "new-image.gif"
+    form.append "post[image]", blob, $(".title").val()+(Math.random() * (1000 - 1) + 1)+".gif"
     request.open "POST", "/posts", true
     request.send form
     request.onload = (oEvent) ->
@@ -58,7 +58,7 @@ document.addEventListener 'DOMContentLoaded', ->
   gif = new GIF
     workers: 2
     workerScript: '/gif/dist/gif.worker.js'
-    quality: 10
+    quality: 5
     height: window.innerWidth
     width: window.innerWidth
   giffy.video = document.querySelector 'video'
@@ -72,6 +72,7 @@ document.addEventListener 'DOMContentLoaded', ->
   giffy.gifContainer = document.getElementById 'gifs'
   giffy.video.height = giffy.gifOpt.h
   giffy.video.width = giffy.gifOpt.w
+  giffy.done_editing = document.querySelector '.done_editing'
   giffy.output = document.querySelector '.result'
   giffy.image = document.querySelector '.gif'
   giffy.image.addEventListener 'click', changeFilter, false
@@ -91,7 +92,15 @@ document.addEventListener 'DOMContentLoaded', ->
 
 
   giffy.upload.addEventListener 'click', ->
-    giffy.do_up master_blob
+    if $(".title").val() == '' || $(".body").val() == ''
+      alert 'You have to have a title and a description!'
+    else
+      $(".result").show()
+      $(".post_create").hide()
+      $(".upload").hide()
+      giffy.do_up master_blob
+
+
   start_cam = ->
     if !!window.stream
       giffy.video.src = null;
@@ -108,16 +117,35 @@ document.addEventListener 'DOMContentLoaded', ->
       giffy.errorCallback(err)
   giffy.camera_select.onchange = start_cam;
   start_cam()
+
   giffy.video_container.addEventListener 'click', ->
     giffy.start_rec 3
     giffy.controls.style.display = 'none'
+
   giffy.video.pause()
+
   gif.on 'progress', (p) ->
     giffy.progress.value = Math.round(p * 100)
+  $(".done_editing").hide()
+  $(".upload").hide()
+  $(".result").hide()
   gif.on 'finished', (blob) ->
     master_blob = blob
     giffy.image.src = URL.createObjectURL(blob)
-    giffy.upload.style.display = 'inline-block'
+    $(".done_editing").show()
+    giffy.progress.style.display = 'none'
+    $(giffy.video.parentNode).slideUp()
+
+  $(".title").hide()
+  $(".body").hide()
+  $(".gradient").hide()
+
+  giffy.done_editing.addEventListener 'click', ->
+    $(".title").show()
+    $(".body").show()
+    $(".gradient").show()
+    $(".upload").show()
+    $(".done_editing").hide()
 
 #Functions
 badBrowser = ->
