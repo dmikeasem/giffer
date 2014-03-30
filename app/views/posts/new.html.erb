@@ -1,9 +1,11 @@
 <%= csrf_meta_tag %>
 <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" if protect_against_forgery? %>
+<div class="alert alert-info center">Camera didn't activate? Try refreshing the page.</div>
 <script src='/gif/dist/gif.js'></script>
 <select class='videoSource'>
 </select>
 <div class='recorder page'>
+
   <p class='btn instructions control'>Click to record</p>
   <p class='counter'>3</p>
   <video autoplay></video>

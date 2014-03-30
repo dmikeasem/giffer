@@ -29,6 +29,8 @@ gem 'devise', '~> 3.1.0.rc2'
 gem 'paperclip', '~>3.0'
 gem 'social-share-button'
 gem 'aws-sdk', '~> 1.20.0'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
      gem 'sqlite3'
