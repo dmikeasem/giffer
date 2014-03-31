@@ -12,3 +12,8 @@
 <% if @post.user == current_user %>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
+
+<%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
