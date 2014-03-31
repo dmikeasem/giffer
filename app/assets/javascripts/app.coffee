@@ -9,8 +9,8 @@ master_blob = null
 
 giffy =
   gifOpt:
-    h: window.innerWidth
-    w: window.innerWidth
+    h: 300
+    w: 300
   canvas: null
   video: null
   image: null
@@ -40,17 +40,19 @@ giffy =
   start_rec: (time)->
       ctx = giffy.canvas.getContext '2d'
       count = 0
+      ms = 250
       recInterval = setInterval ->
         ctx.drawImage giffy.video, 0, 0, giffy.gifOpt.w, giffy.gifOpt.h
-        gif.addFrame ctx, {copy: true, delay: 100}
+        gif.addFrame ctx, {copy: true, delay: ms}
         count++
-        if count%10 == 0
+        console.log count
+        if count%Math.round(1000/ms) == 0
           giffy.counter.textContent = parseInt(giffy.counter.textContent, 10)-1
-        if count == time*10
+        if count == time*Math.round(1000/ms)
           clearInterval recInterval
           makeGif()
           return 0
-      , 100
+      , ms
       return 0
   errorCallback: (e) ->
     console.log "Houston, we have a problem\n\t", e
@@ -60,11 +62,11 @@ giffy =
 
 document.addEventListener 'DOMContentLoaded', ->
   gif = new GIF
-    workers: 2
+    workers: 10
     workerScript: '/gif/dist/gif.worker.js'
-    quality: 5
-    height: window.innerWidth
-    width: window.innerWidth
+    quality: 10
+    height: giffy.gifOpt.h
+    width: giffy.gifOpt.w
   giffy.video = document.querySelector 'video'
   giffy.video_container = document.querySelector '.recorder'
   giffy.progress = document.querySelector '.render'
