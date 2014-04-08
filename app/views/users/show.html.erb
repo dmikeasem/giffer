@@ -1,7 +1,5 @@
 
-<% atPost = true %>
-
-<%= link_to 'My Giffy', "#", class: "btn btn-full btn-primary" %>
+<div class="btn btn-full btn-primary btn-static">My Giffy</div>
 
 <%= link_to 'Create New Post +', "/posts/new", class: "btn btn-full btn-default" %>
 
@@ -32,7 +30,3 @@
     <% end %>
   </div>
 </table>
-
-<div class="center">
-   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-</div>
